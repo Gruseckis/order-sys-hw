@@ -1,0 +1,8 @@
+.main-container {
+    margin: 0 60px;
+}
+
+.content {
+    height: 100%;
+    border: 1px solid black;
+}
