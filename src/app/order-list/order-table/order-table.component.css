@@ -1,0 +1,15 @@
+.order-table {
+  width: 100%;
+}
+
+.mat-column-orderNumber {
+  width: 10%;
+}
+
+.mat-column-customerName {
+  width: 20%;
+}
+
+.mat-column-created {
+  width: 15%;
+}

@@ -1,0 +1,18 @@
+<div class="order-inbox">
+  <div class="order-header">
+    <h1>Orders</h1>
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="onImportOrder()">
+        Import Orders
+      </button>
+      <button mat-raised-button>NA1</button>
+      <button mat-raised-button>NA2</button>
+    </div>
+  </div>
+  <ng-container *ngIf="(orders$ | async)?.length; else spinner">
+    <app-order-table [tableData]="orders$ | async"></app-order-table>
+  </ng-container>
+  <ng-template #spinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

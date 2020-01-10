@@ -1,0 +1,16 @@
+.order-header {
+  display: flex;
+}
+
+.button-container {
+  margin: 20px 0;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+h1 {
+  flex: 1;
+  margin: 20px 0;
+}
