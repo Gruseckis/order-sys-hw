@@ -1,0 +1,9 @@
+/* search table */
+.search-results-table {
+  width: 100%;
+}
+
+.order-result-row:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}

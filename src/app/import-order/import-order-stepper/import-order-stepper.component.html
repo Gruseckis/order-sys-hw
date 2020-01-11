@@ -1,21 +1,33 @@
 <div class="stepper-container">
-  <mat-horizontal-stepper linear #stepper>
-    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
+  <mat-horizontal-stepper
+    linear
+    (selectionChange)="steppChange($event)"
+    #stepper
+  >
+    <mat-step [completed]="completeFindOrder" [editable]="isEditable">
+      <ng-template matStepLabel>Find Order</ng-template>
+      <app-find-order-step></app-find-order-step>
+      <div class="step-control-buttons">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!completeFindOrder"
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
+        <ng-template matStepLabel>Prepare Products</ng-template>
         <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          <input
+            matInput
+            placeholder="Address"
+            formControlName="secondCtrl"
+            required
+          />
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
@@ -24,7 +36,7 @@
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel>Confirm Order</ng-template>
       You are now done.
       <div>
         <button mat-button matStepperPrevious>Back</button>

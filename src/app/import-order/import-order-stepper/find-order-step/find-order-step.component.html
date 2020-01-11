@@ -1,0 +1,16 @@
+<div class="find-order-container">
+  <mat-form-field class="search-input">
+    <mat-icon matPrefix class="search-icon">
+      search
+    </mat-icon>
+    <input
+      matInput
+      placeholder="Order Number"
+      [formControl]="searchInput"
+      (keypress)="onKeyPress($event)"
+    />
+  </mat-form-field>
+  <app-search-result-table
+    [tableData]="searchResults$ | async"
+  ></app-search-result-table>
+</div>

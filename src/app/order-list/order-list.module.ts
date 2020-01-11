@@ -21,10 +21,7 @@ import { ImportOrderModule } from '../import-order/import-order.module';
     HttpClientModule,
     ImportOrderModule
   ],
-  declarations: [
-    OrderListComponent,
-    OrderTableComponent
-  ],
+  declarations: [OrderListComponent, OrderTableComponent],
   exports: [OrderListComponent]
 })
 export class OrderListModule {}

@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   ViewChild,
   OnChanges,
@@ -31,8 +30,6 @@ export class OrderTableComponent implements OnChanges {
   ];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
-  constructor() {}
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (!changes.tableData.firstChange) {

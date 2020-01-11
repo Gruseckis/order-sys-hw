@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImportOrderStepperComponent } from './import-order-stepper/import-order-stepper.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FindOrderStepModule } from './import-order-stepper/find-order-step/find-order-step.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FindOrderStepModule
   ],
   declarations: [
     ImportOrderComponent,
