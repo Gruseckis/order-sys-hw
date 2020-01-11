@@ -8,7 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ImportOrderDialogComponent } from './import-order-dialog/import-order-dialog.component';
+import { ImportOrderModule } from '../import-order/import-order.module';
 
 @NgModule({
   imports: [
@@ -18,14 +18,13 @@ import { ImportOrderDialogComponent } from './import-order-dialog/import-order-d
     MatTableModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    ImportOrderModule
   ],
   declarations: [
     OrderListComponent,
-    OrderTableComponent,
-    ImportOrderDialogComponent
+    OrderTableComponent
   ],
-  exports: [OrderListComponent],
-  entryComponents: [ImportOrderDialogComponent]
+  exports: [OrderListComponent]
 })
 export class OrderListModule {}

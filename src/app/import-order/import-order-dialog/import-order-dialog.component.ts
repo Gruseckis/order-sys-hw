@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { DialogData } from 'src/app/models/order';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from 'src/app/models/order';
 
 @Component({
   selector: 'app-import-order-dialog',
@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./import-order-dialog.component.css']
 })
 export class ImportOrderDialogComponent implements OnInit {
+
   constructor(
     public dialogRef: MatDialogRef<ImportOrderDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
@@ -18,4 +19,5 @@ export class ImportOrderDialogComponent implements OnInit {
   onNoClick() {
     console.log('log');
   }
+
 }

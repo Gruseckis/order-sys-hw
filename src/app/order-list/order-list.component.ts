@@ -7,7 +7,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
-import { ImportOrderDialogComponent } from './import-order-dialog/import-order-dialog.component';
+import { ImportOrderDialogComponent } from '../import-order/import-order-dialog/import-order-dialog.component';
 
 @Component({
   selector: 'app-order-list',
@@ -28,7 +28,7 @@ export class OrderListComponent implements OnInit {
 
   public onImportOrder() {
     const dialogRef = this.dialog.open(ImportOrderDialogComponent, {
-      width: '250px',
+      width: '80vw',
       data: { name: 'Name', animal: 'Animal' }
     });
 
