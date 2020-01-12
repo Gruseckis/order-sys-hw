@@ -9,7 +9,34 @@ export interface Order {
   fulfillment: string;
 }
 
-export interface DialogData {
-  animal: string;
-  name: string;
+export interface ImportedOrder {
+  selectedOrder: SearchResult;
+  selectedProducts: Array<Product>;
+  productVariation: Array<ProductVariation>;
+  importStatus: ImportStatus;
+}
+
+export interface Product {
+  SKU: string;
+  productName: string;
+  price: number;
+}
+
+export interface SearchResult {
+  id: number;
+  customerName: string;
+  customerSurname: string;
+  products: Array<Product>;
+}
+
+export interface ProductVariation {
+  SKU: string;
+  variation: string;
+}
+
+export enum ImportStatus {
+  OrderSelection = 'OS',
+  ProductPreparation = 'PP',
+  ConfirmOrder = 'CO',
+  CompleteImport = 'CI'
 }

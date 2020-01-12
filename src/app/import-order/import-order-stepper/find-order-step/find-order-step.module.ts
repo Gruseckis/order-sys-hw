@@ -8,6 +8,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { SearchResultTableComponent } from './search-result-table/search-result-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderDetailsTableModule } from '../../order-details-table/order-details-table.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MyPipesModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OrderDetailsTableModule
   ],
   declarations: [FindOrderStepComponent, SearchResultTableComponent],
   exports: [FindOrderStepComponent],

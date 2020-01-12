@@ -1,1 +1,6 @@
-<app-import-order-stepper></app-import-order-stepper>
+<div class="close-button-container">
+  <button mat-icon-button aria-label="close dialog" (click)="dialogRef.close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<app-import-order-stepper [dialogRef]="dialogRef"></app-import-order-stepper>

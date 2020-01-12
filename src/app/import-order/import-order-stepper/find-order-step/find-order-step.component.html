@@ -1,16 +1,8 @@
 <div class="find-order-container">
-  <mat-form-field class="search-input">
-    <mat-icon matPrefix class="search-icon">
-      search
-    </mat-icon>
-    <input
-      matInput
-      placeholder="Order Number"
-      [formControl]="searchInput"
-      (keypress)="onKeyPress($event)"
-    />
-  </mat-form-field>
-  <app-search-result-table
-    [tableData]="searchResults$ | async"
-  ></app-search-result-table>
+  <ng-container *ngIf="!(importState$ | async).selectedOrder">
+    <app-search-result-table></app-search-result-table>
+  </ng-container>
+  <ng-container *ngIf="(importState$ | async).selectedOrder">
+    <app-order-details-table></app-order-details-table>
+  </ng-container>
 </div>

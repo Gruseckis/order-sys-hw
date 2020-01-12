@@ -4,43 +4,102 @@
     (selectionChange)="steppChange($event)"
     #stepper
   >
-    <mat-step [completed]="completeFindOrder" [editable]="isEditable">
+    <!-- First Step -->
+    <mat-step [completed]="(importState$ | async)?.selectedProducts.length > 0">
       <ng-template matStepLabel>Find Order</ng-template>
+      <mat-form-field class="search-input">
+        <mat-icon matPrefix class="search-icon">
+          search
+        </mat-icon>
+        <input
+          matInput
+          placeholder="Order Number"
+          [formControl]="searchInput"
+          (keypress)="onKeyPress($event)"
+        />
+      </mat-form-field>
+      <ng-container *ngIf="(importState$ | async).selectedOrder">
+        <button mat-flat-button class="under-line" (click)="onOrderDeselect()">
+          My Orders
+        </button>
+        |
+        <button mat-flat-button class="under-line">
+          Order #{{ (importState$ | async).selectedOrder.id }}
+        </button>
+      </ng-container>
       <app-find-order-step></app-find-order-step>
       <div class="step-control-buttons">
+        <ng-container
+          *ngIf="!(importState$ | async).selectedOrder; else navButtons"
+        >
+          <button
+            mat-raised-button
+            matStepperNext
+            color="warn"
+            (click)="onDialogClose()"
+          >
+            Cancel
+          </button>
+        </ng-container>
+        <ng-template #navButtons>
+          <button mat-raised-button (click)="onOrderDeselect()">
+            Previouse
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onMoveToPrepare()"
+            [disabled]="!(importState$ | async)?.selectedProducts.length"
+            matStepperNext
+          >
+            Next
+          </button>
+        </ng-template>
+      </div>
+    </mat-step>
+    <!-- Second Step -->
+    <mat-step [completed]="(importState$ | async)?.productVariation.length > 0">
+      <ng-template matStepLabel>Prepare Products</ng-template>
+      <mat-form-field class="search-input">
+        <mat-icon matPrefix class="search-icon">
+          search
+        </mat-icon>
+        <input
+          matInput
+          placeholder="Order Number"
+          [formControl]="searchInput"
+          (keypress)="onKeyPress($event)"
+        />
+      </mat-form-field>
+      <ng-container *ngIf="(importState$ | async).selectedOrder">
+        <button mat-flat-button class="under-line" (click)="onOrderDeselect()">
+          My Orders
+        </button>
+        |
+        <button mat-flat-button class="under-line">
+          Order #{{ (importState$ | async).selectedOrder.id }}
+        </button>
+      </ng-container>
+      <div class="step-control-buttons">
+        <button mat-raised-button matStepperPrevious>
+          Back
+        </button>
         <button
           mat-raised-button
-          color="primary"
-          [disabled]="!completeFindOrder"
           matStepperNext
+          color="primary"
+          [disabled]="!(importState$ | async)?.productVariation.length"
         >
           Next
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Prepare Products</ng-template>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Address"
-            formControlName="secondCtrl"
-            required
-          />
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
     <mat-step>
       <ng-template matStepLabel>Confirm Order</ng-template>
       You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+      <div class="step-control-buttons">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

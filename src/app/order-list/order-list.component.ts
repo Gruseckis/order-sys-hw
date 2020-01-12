@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from '../http-request/http-request.service';
 import { Observable } from 'rxjs';
 import { Order } from '../models/order';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ImportOrderDialogComponent } from '../import-order/import-order-dialog/import-order-dialog.component';
+import { first } from 'rxjs/operators';
+import { ImportOrderServiceService } from '../import-order/import-order-service/import-order-service.service';
 
 @Component({
   selector: 'app-order-list',
@@ -19,6 +17,7 @@ export class OrderListComponent implements OnInit {
 
   constructor(
     private httpService: HttpRequestService,
+    private importOrderService: ImportOrderServiceService,
     private dialog: MatDialog
   ) {}
 
@@ -29,11 +28,16 @@ export class OrderListComponent implements OnInit {
   public onImportOrder() {
     const dialogRef = this.dialog.open(ImportOrderDialogComponent, {
       width: '80vw',
-      data: { name: 'Name', animal: 'Animal' }
+      disableClose: true
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(first())
+      .subscribe(result => {
+        this.httpService.reset();
+        this.importOrderService.reset();
+        console.log('The dialog was closed', result);
+      });
   }
 }

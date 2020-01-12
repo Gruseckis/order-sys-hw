@@ -9,6 +9,7 @@ import { ImportOrderStepperComponent } from './import-order-stepper/import-order
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FindOrderStepModule } from './import-order-stepper/find-order-step/find-order-step.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { FindOrderStepModule } from './import-order-stepper/find-order-step/find
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     FindOrderStepModule
   ],
   declarations: [

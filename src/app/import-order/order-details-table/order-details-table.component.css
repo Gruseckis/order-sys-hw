@@ -1,0 +1,11 @@
+.order-result-row:hover {
+  background-color: #cccccc;
+}
+
+.order-details-table {
+  width: 100%;
+}
+
+.mat-header-row {
+  display: none;
+}

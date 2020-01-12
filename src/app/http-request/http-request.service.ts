@@ -1,16 +1,23 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Order } from '../models/order';
+import { Order, SearchResult } from '../models/order';
 import { first } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { SearchResult } from '../import-order/import-order-stepper/find-order-step/find-order-step.component';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpRequestService {
   private baseUrl = 'http://localhost:3000/';
+  private _importOrderSearch$ = new BehaviorSubject<Array<SearchResult>>([]);
+
+  public readonly importOrderSearch$ = this._importOrderSearch$.asObservable();
+
   constructor(private http: HttpClient) {}
+
+  private setImportOrderSearc(results: Array<SearchResult>) {
+    this._importOrderSearch$.next(results);
+  }
 
   public getOrder(): Observable<Array<Order>> {
     return this.http.get<Array<Order>>(`${this.baseUrl}orders`).pipe(first());
@@ -22,5 +29,20 @@ export class HttpRequestService {
         `${this.baseUrl}importOrders?id_like=${orderNumber}`
       )
       .pipe(first());
+  }
+
+  public reset() {
+    this.setImportOrderSearc([]);
+  }
+
+  public importOrderSearch(orderNumber: number) {
+    this.http
+      .get<Array<SearchResult>>(
+        `${this.baseUrl}importOrders?id_like=${orderNumber}`
+      )
+      .pipe(first())
+      .subscribe(result => {
+        this.setImportOrderSearc(result);
+      });
   }
 }

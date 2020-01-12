@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Product } from '../import-order/import-order-stepper/find-order-step/find-order-step.component';
+import { Product } from '../models/order';
 
 @Pipe({
   name: 'orderValue'
