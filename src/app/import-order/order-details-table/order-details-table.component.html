@@ -2,7 +2,48 @@
   <table mat-table class="order-details-table" [dataSource]="dataSource">
     <ng-container matColumnDef="productName">
       <th mat-header-cell *matHeaderCellDef>#</th>
-      <td mat-cell *matCellDef="let element">{{ element.productName }}</td>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="importStatus === 'OS'; else orderVariation">
+          {{ element.productName }}
+        </ng-container>
+        <ng-template #orderVariation>
+          <mat-accordion displayMode="flat">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header expandedHeight="48px">
+                <mat-panel-title>
+                  {{ element.productName }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="variation">
+                Product Variation
+                <mat-radio-group
+                  class="variation-radio-group"
+                  [labelPosition]="'before'"
+                  [value]="element.variation"
+                >
+                  <mat-radio-button
+                    class="variation-radio-button"
+                    *ngFor="let variation of productVariants"
+                    [value]="variation.code"
+                    (change)="onVariantSelect($event, element)"
+                  >
+                    <div class="variant-option">
+                      <mat-icon
+                        class="variant-icon"
+                        fontSet="fa"
+                        fontIcon="{{ variation.icon }} fa-2x"
+                      ></mat-icon>
+                      <div class="variant-description">
+                        {{ variation.description }}
+                      </div>
+                    </div>
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </ng-template>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="SKU">
@@ -15,10 +56,25 @@
     <ng-container matColumnDef="selected">
       <th mat-header-cell *matHeaderCellDef>Select</th>
       <td mat-cell *matCellDef="let element">
-        <mat-checkbox
-          color="primary"
-          (click)="onSelect(element)"
-        ></mat-checkbox>
+        <ng-container *ngIf="importStatus === 'OS'; else prepareOrderSelected">
+          <mat-checkbox
+            color="primary"
+            (click)="onSelect(element)"
+            [checked]="element.isSelected"
+          ></mat-checkbox>
+        </ng-container>
+        <ng-template #prepareOrderSelected>
+          <ng-container *ngIf="!element.variation; else variationSelected">
+            Not selected
+          </ng-container>
+          <ng-template #variationSelected>
+            <mat-icon
+              class="variant-selected-icon"
+              fontSet="fa"
+              fontIcon="fa-check fa-2x"
+            ></mat-icon>
+          </ng-template>
+        </ng-template>
       </td>
     </ng-container>
 

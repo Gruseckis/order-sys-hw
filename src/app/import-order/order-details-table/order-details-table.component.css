@@ -1,11 +1,71 @@
-.order-result-row:hover {
-  background-color: #cccccc;
-}
-
 .order-details-table {
   width: 100%;
 }
 
 .mat-header-row {
   display: none;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.variation-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.variation-radio-button {
+  margin: 5px;
+}
+
+.mat-accordion .mat-expansion-panel {
+  box-shadow: none;
+}
+
+.variant-description {
+  display: inline;
+  padding-left: 5px;
+}
+
+.variant-option {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .mat-expansion-panel-content .mat-expansion-panel-body {
+  padding: 0 24px;
+}
+
+::ng-deep .mat-expansion-panel-content {
+  position: absolute;
+  width: 60%;
+  background: white;
+  border-right: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid rgb(224, 224, 224);
+  border-left: 1px solid rgb(224, 224, 224);
+  border-image: initial;
+  border-top: none;
+  padding: 20px 0;
+  z-index: 10;
+}
+
+::ng-deep
+  .ng-animating
+  div
+  mat-accordion
+  mat-expansion-panel
+  div.mat-expansion-panel-content {
+  height: 0px;
+  visibility: hidden;
+}
+
+::ng-deep
+  .ng-animating
+  div
+  mat-accordion
+  mat-expansion-panel
+  mat-expansion-panel-header {
+  height: 48px;
 }

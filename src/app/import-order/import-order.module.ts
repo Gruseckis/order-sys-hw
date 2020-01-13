@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FindOrderStepModule } from './import-order-stepper/find-order-step/find-order-step.module';
 import { MatIconModule } from '@angular/material/icon';
+import { PrepareProductStepModule } from './import-order-stepper/prepare-product-step/prepare-product-step.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    FindOrderStepModule
+    FindOrderStepModule,
+    PrepareProductStepModule
   ],
   declarations: [
     ImportOrderComponent,

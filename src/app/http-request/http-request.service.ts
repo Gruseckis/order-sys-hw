@@ -35,7 +35,7 @@ export class HttpRequestService {
     this.setImportOrderSearc([]);
   }
 
-  public importOrderSearch(orderNumber: number) {
+  public importOrderSearch(orderNumber: number | string) {
     this.http
       .get<Array<SearchResult>>(
         `${this.baseUrl}importOrders?id_like=${orderNumber}`

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { ImportOrderServiceService } from '../import-order-service/import-order-service.service';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { ImportedOrder, ImportStatus } from 'src/app/models/order';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ImportOrderDialogComponent } from '../import-order-dialog/import-order-dialog.component';
 import { HttpRequestService } from 'src/app/http-request/http-request.service';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-import-order-stepper',
@@ -17,12 +18,10 @@ export class ImportOrderStepperComponent implements OnInit, OnDestroy {
   @Input()
   public dialogRef: MatDialogRef<ImportOrderDialogComponent>;
 
-  public searchInput = new FormControl('', Validators.required);
+  public searchInput = new FormControl('');
 
   public importState$: Observable<ImportedOrder> = this.importOrderService
     .importedOrder$;
-  secondFormGroup: FormGroup;
-  isEditable = false;
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -37,6 +36,7 @@ export class ImportOrderStepperComponent implements OnInit, OnDestroy {
       .subscribe(response => {
         console.log(response);
       });
+    this.httpRequestService.importOrderSearch('');
   }
 
   public onDialogClose() {
@@ -47,8 +47,11 @@ export class ImportOrderStepperComponent implements OnInit, OnDestroy {
     console.log('change', $event);
   }
 
-  public onOrderDeselect() {
+  public onOrderDeselect(stepper: MatStepper) {
     this.importOrderService.selectImportedOrder(null);
+    if (stepper) {
+      stepper.reset();
+    }
   }
 
   public onKeyPress(event: KeyboardEvent) {
@@ -57,8 +60,12 @@ export class ImportOrderStepperComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onMoveToPrepare() {
-    this.importOrderService.changeImportStatus(ImportStatus.ProductPreparation);
+  public onStepChange(status: ImportStatus) {
+    this.importOrderService.changeImportStatus(status);
+  }
+
+  public onImportFinalize() {
+    this.dialogRef.close(this.importOrderService.importedOrder);
   }
 
   public ngOnDestroy(): void {

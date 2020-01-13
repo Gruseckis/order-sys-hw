@@ -20,6 +20,8 @@ export interface Product {
   SKU: string;
   productName: string;
   price: number;
+  isSelected?: boolean;
+  variation?: string;
 }
 
 export interface SearchResult {
@@ -27,6 +29,12 @@ export interface SearchResult {
   customerName: string;
   customerSurname: string;
   products: Array<Product>;
+}
+
+export interface ProductVariationOption {
+  code: string;
+  description: string;
+  icon: string;
 }
 
 export interface ProductVariation {

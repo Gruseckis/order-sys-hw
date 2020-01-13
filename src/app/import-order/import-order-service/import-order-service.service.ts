@@ -36,15 +36,15 @@ export class ImportOrderServiceService {
   }
 
   public selectImportedOrder(order: SearchResult) {
-    const state = this.importedOrder;
-    const newState = produce(state, draft => {
-      draft.selectedOrder = order;
-      if (!order) {
-        draft.selectedProducts = [];
-        draft.importStatus = ImportStatus.OrderSelection;
-      }
-    });
-    this.setImportedOrder(newState);
+    if (!order) {
+      this.reset();
+    } else {
+      const state = this.importedOrder;
+      const newState = produce(state, draft => {
+        draft.selectedOrder = order;
+      });
+      this.setImportedOrder(newState);
+    }
   }
 
   public selectImportedProduct(product: Product) {
@@ -55,10 +55,21 @@ export class ImportOrderServiceService {
       );
       if (!replica) {
         draft.selectedProducts.push(product);
+        const selected = draft.selectedOrder.products.find(
+          item => item.SKU === product.SKU
+        );
+        selected.isSelected = true;
       } else {
         draft.selectedProducts = draft.selectedProducts.filter(
           item => item.SKU !== product.SKU
         );
+        draft.productVariation = draft.productVariation.filter(
+          item => item.SKU !== product.SKU
+        );
+        const selected = draft.selectedOrder.products.find(
+          item => item.SKU === product.SKU
+        );
+        selected.isSelected = false;
       }
       return draft;
     });
@@ -73,6 +84,29 @@ export class ImportOrderServiceService {
     const state = this.importedOrder;
     const newState = produce(state, draft => {
       draft.importStatus = status;
+    });
+    this.setImportedOrder(newState);
+  }
+
+  public selectProductVariant(variantCode: string, productSKU: string) {
+    const state = this.importedOrder;
+    const newState = produce(state, draft => {
+      const product = draft.selectedProducts.find(
+        item => item.SKU === productSKU
+      );
+      product.variation = variantCode;
+      const replica = draft.productVariation.find(
+        item => item.SKU === productSKU
+      );
+      if (replica) {
+        replica.variation = variantCode;
+      } else {
+        draft.productVariation.push({
+          SKU: productSKU,
+          variation: variantCode
+        });
+      }
+      return draft;
     });
     this.setImportedOrder(newState);
   }

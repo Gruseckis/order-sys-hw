@@ -19,7 +19,11 @@
         />
       </mat-form-field>
       <ng-container *ngIf="(importState$ | async).selectedOrder">
-        <button mat-flat-button class="under-line" (click)="onOrderDeselect()">
+        <button
+          mat-flat-button
+          class="under-line"
+          (click)="onOrderDeselect(stepper)"
+        >
           My Orders
         </button>
         |
@@ -48,7 +52,7 @@
           <button
             mat-raised-button
             color="primary"
-            (click)="onMoveToPrepare()"
+            (click)="onStepChange('PP')"
             [disabled]="!(importState$ | async)?.selectedProducts.length"
             matStepperNext
           >
@@ -58,21 +62,20 @@
       </div>
     </mat-step>
     <!-- Second Step -->
-    <mat-step [completed]="(importState$ | async)?.productVariation.length > 0">
+    <mat-step
+      [completed]="
+        (importState$ | async)?.productVariation.length ===
+          (importState$ | async)?.selectedProducts.length &&
+        (importState$ | async)?.selectedProducts.length > 0
+      "
+    >
       <ng-template matStepLabel>Prepare Products</ng-template>
-      <mat-form-field class="search-input">
-        <mat-icon matPrefix class="search-icon">
-          search
-        </mat-icon>
-        <input
-          matInput
-          placeholder="Order Number"
-          [formControl]="searchInput"
-          (keypress)="onKeyPress($event)"
-        />
-      </mat-form-field>
       <ng-container *ngIf="(importState$ | async).selectedOrder">
-        <button mat-flat-button class="under-line" (click)="onOrderDeselect()">
+        <button
+          mat-flat-button
+          class="under-line"
+          (click)="onOrderDeselect(stepper)"
+        >
           My Orders
         </button>
         |
@@ -80,15 +83,24 @@
           Order #{{ (importState$ | async).selectedOrder.id }}
         </button>
       </ng-container>
+      <app-prepare-product-step></app-prepare-product-step>
       <div class="step-control-buttons">
-        <button mat-raised-button matStepperPrevious>
-          Back
+        <button
+          mat-raised-button
+          matStepperPrevious
+          (click)="onStepChange('OS')"
+        >
+          Previouse
         </button>
         <button
           mat-raised-button
           matStepperNext
           color="primary"
-          [disabled]="!(importState$ | async)?.productVariation.length"
+          [disabled]="
+            (importState$ | async)?.productVariation.length !==
+            (importState$ | async)?.selectedProducts.length
+          "
+          (click)="onStepChange('CO')"
         >
           Next
         </button>
@@ -98,8 +110,16 @@
       <ng-template matStepLabel>Confirm Order</ng-template>
       You are now done.
       <div class="step-control-buttons">
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+        <button
+          mat-raised-button
+          matStepperPrevious
+          (click)="onStepChange('PP')"
+        >
+          Previouse
+        </button>
+        <button mat-raised-button color="primary" (click)="onImportFinalize()">
+          Confirm and Ship
+        </button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
