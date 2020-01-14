@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from '../http-request/http-request.service';
-import { Observable } from 'rxjs';
-import { Order, ImportStatus, ImportedOrder } from '../models/order';
+import produce from 'immer';
+import { Order, ImportedOrder } from '../models/order';
 import { MatDialog } from '@angular/material/dialog';
 import { ImportOrderDialogComponent } from '../import-order/import-order-dialog/import-order-dialog.component';
 import { first } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { ImportOrderServiceService } from '../import-order/import-order-service/
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-  public orders$: Observable<Array<Order>>;
+  public orders: Array<Order> = [];
 
   constructor(
     private httpService: HttpRequestService,
@@ -22,7 +22,11 @@ export class OrderListComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    this.orders$ = this.httpService.getOrder();
+     this.httpService.getOrder()
+      .pipe(first())
+      .subscribe(response => {
+        this.orders = response;
+      });
   }
 
   public onImportOrder() {
@@ -39,14 +43,19 @@ export class OrderListComponent implements OnInit {
         this.importOrderService.reset();
         const newOrder: Order = {
           ...result.selectedOrder,
-          id: 1234,
           orderStatus: 'Processing',
           products: [
             ...result.selectedProducts
           ],
           createDate: new Date().toISOString()
         };
-        this.httpService.addOrderToInbox(newOrder);
+        this.httpService.addOrderToInbox(newOrder)
+        .pipe(first())
+        .subscribe((response: Order) => {
+          this.orders = produce(this.orders, draft => {
+            draft.push(response);
+          });
+        });
       });
   }
 }

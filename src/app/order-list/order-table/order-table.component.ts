@@ -32,9 +32,7 @@ export class OrderTableComponent implements OnChanges {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (!changes.tableData.firstChange) {
-      this.dataSource = new MatTableDataSource(changes.tableData.currentValue);
-      this.dataSource.paginator = this.paginator;
-    }
+    this.dataSource = new MatTableDataSource(changes.tableData.currentValue);
+    this.dataSource.paginator = this.paginator;
   }
 }

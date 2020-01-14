@@ -64,8 +64,8 @@ export class OrderDetailsTableComponent implements OnInit, OnDestroy {
             response.selectedOrder ? response.selectedOrder.products : []
           );
         }
+        this.dataSource.paginator = this.paginator;
       });
-    this.dataSource.paginator = this.paginator;
   }
 
   public ngOnDestroy(): void {

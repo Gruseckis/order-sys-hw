@@ -16,6 +16,10 @@ export interface ImportedOrder {
   importStatus: ImportStatus;
 }
 
+export interface InboxInfo {
+  currentOrderNumber: number;
+}
+
 export interface Product {
   SKU: string;
   productName: string;

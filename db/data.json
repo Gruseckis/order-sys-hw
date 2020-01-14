@@ -315,14 +315,12 @@
         {
           "SKU": "SOCK_101_SMALL_1",
           "productName": "Children Socks",
-          "price": 10.05,
-          "variation": "LS"
+          "price": 10.05
         },
         {
           "SKU": "SOCK_201_SMALL_1",
           "productName": "Children Batman Socks",
-          "price": 11,
-          "variation": "LS"
+          "price": 11
         }
       ]
     },
