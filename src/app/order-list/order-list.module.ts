@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ImportOrderModule } from '../import-order/import-order.module';
+import { MyPipesModule } from '../pipes/pipe-module.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ImportOrderModule } from '../import-order/import-order.module';
     MatProgressSpinnerModule,
     MatDialogModule,
     HttpClientModule,
-    ImportOrderModule
+    ImportOrderModule,
+    MyPipesModule
   ],
   declarations: [OrderListComponent, OrderTableComponent],
   exports: [OrderListComponent]

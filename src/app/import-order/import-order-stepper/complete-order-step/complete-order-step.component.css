@@ -1,0 +1,12 @@
+.complete-order-container {
+  padding: 30px 0;
+}
+
+.address-price-container {
+  display: flex;
+  padding: 15px;
+}
+
+.shipping-info, .price-info {
+  flex: 1;
+}

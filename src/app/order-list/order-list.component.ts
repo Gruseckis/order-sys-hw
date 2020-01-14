@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from '../http-request/http-request.service';
 import { Observable } from 'rxjs';
-import { Order } from '../models/order';
+import { Order, ImportStatus, ImportedOrder } from '../models/order';
 import { MatDialog } from '@angular/material/dialog';
 import { ImportOrderDialogComponent } from '../import-order/import-order-dialog/import-order-dialog.component';
 import { first } from 'rxjs/operators';
@@ -34,10 +34,19 @@ export class OrderListComponent implements OnInit {
     dialogRef
       .afterClosed()
       .pipe(first())
-      .subscribe(result => {
+      .subscribe((result: ImportedOrder)  => {
         this.httpService.reset();
         this.importOrderService.reset();
-        console.log('The dialog was closed', result);
+        const newOrder: Order = {
+          ...result.selectedOrder,
+          id: 1234,
+          orderStatus: 'Processing',
+          products: [
+            ...result.selectedProducts
+          ],
+          createDate: new Date().toISOString()
+        };
+        this.httpService.addOrderToInbox(newOrder);
       });
   }
 }

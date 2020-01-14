@@ -3,7 +3,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import produce from 'immer';
 import {
   ImportedOrder,
-  SearchResult,
+  Order,
   ImportStatus,
   Product
 } from 'src/app/models/order';
@@ -22,7 +22,7 @@ export class ImportOrderServiceService {
   private readonly _importOrder$ = new BehaviorSubject<ImportedOrder>(
     initialState
   );
-  private _selectedOrder: SearchResult;
+  private _selectedOrder: Order;
 
   public readonly importedOrder$ = this._importOrder$.asObservable();
   public orderFound = new Subject<boolean>();
@@ -35,7 +35,7 @@ export class ImportOrderServiceService {
     this._importOrder$.next(state);
   }
 
-  public selectImportedOrder(order: SearchResult) {
+  public selectImportedOrder(order: Order) {
     if (!order) {
       this.reset();
     } else {
@@ -76,7 +76,7 @@ export class ImportOrderServiceService {
     this.setImportedOrder(newState);
   }
 
-  public selectOrder(order: SearchResult) {
+  public selectOrder(order: Order) {
     this._selectedOrder = order;
   }
 
@@ -115,7 +115,7 @@ export class ImportOrderServiceService {
     this.setImportedOrder(initialState);
   }
 
-  public getSelectedOrder(): SearchResult {
+  public getSelectedOrder(): Order {
     return this._selectedOrder;
   }
 }

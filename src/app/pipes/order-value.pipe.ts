@@ -6,9 +6,9 @@ import { Product } from '../models/order';
 })
 export class OrderValuePipe implements PipeTransform {
   transform(orders: Array<Product>): number {
-    if (orders.length) {
-      return orders.reduce((accamulated, currentValue) => {
-        return accamulated + currentValue.price;
+    if (orders && orders.length) {
+      return orders.reduce((accumulated, currentValue) => {
+        return accumulated + currentValue.price;
       }, 0);
     }
     return null;

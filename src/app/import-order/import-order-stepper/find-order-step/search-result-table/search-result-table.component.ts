@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { ImportOrderServiceService } from 'src/app/import-order/import-order-service/import-order-service.service';
-import { SearchResult } from 'src/app/models/order';
+import { Order } from 'src/app/models/order';
 import { HttpRequestService } from 'src/app/http-request/http-request.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./search-result-table.component.css']
 })
 export class SearchResultTableComponent implements OnInit, OnDestroy {
-  public dataSource = new MatTableDataSource<SearchResult>();
+  public dataSource = new MatTableDataSource<Order>();
   public searchTableColumns = [
     'orderNumber',
     'customerName',
@@ -40,7 +40,7 @@ export class SearchResultTableComponent implements OnInit, OnDestroy {
       });
   }
 
-  public onRowClick(row: SearchResult) {
+  public onRowClick(row: Order) {
     this.importOrderService.selectImportedOrder(row);
   }
 

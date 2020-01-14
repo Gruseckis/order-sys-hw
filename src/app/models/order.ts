@@ -1,4 +1,4 @@
-export interface Order {
+export interface TestOrder {
   orderGuid: string;
   orderNumber: string;
   customerName: string;
@@ -10,7 +10,7 @@ export interface Order {
 }
 
 export interface ImportedOrder {
-  selectedOrder: SearchResult;
+  selectedOrder: Order;
   selectedProducts: Array<Product>;
   productVariation: Array<ProductVariation>;
   importStatus: ImportStatus;
@@ -24,10 +24,25 @@ export interface Product {
   variation?: string;
 }
 
-export interface SearchResult {
+export interface CustomerAddress {
+  city: string;
+  street: string;
+  postalCode: string;
+}
+
+export type OrderStatus = 'Shipped'
+                          | 'Processing'
+                          | 'Finalized'
+                          | 'Packaging'
+                          | 'Delivered';
+
+export interface Order {
   id: number;
   customerName: string;
   customerSurname: string;
+  customerAddress: CustomerAddress;
+  createDate?: string;
+  orderStatus?: OrderStatus;
   products: Array<Product>;
 }
 

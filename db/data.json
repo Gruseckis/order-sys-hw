@@ -139,6 +139,65 @@
       "cost": "16.53",
       "price": "41.16",
       "fulfillment": "Quality Control"
+    },
+    {
+      "id": "123",
+      "orderGuid": "999",
+      "orderNumber": "123",
+      "customerName": "Pamelina",
+      "customerSurname": "Farnorth",
+      "creatDate": "2019-06-10T12:39:19Z",
+      "cost": "11.60",
+      "price": "35.20",
+      "fulfillment": "In Progress"
+    }
+  ],
+  "productVariation": [
+    {
+      "code": "HWS",
+      "description": "Heavy wool socks",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "code": "CS",
+      "description": "Crew Socks",
+      "icon": "fa-socks"
+    },
+    {
+      "code": "LS",
+      "description": "Light Socks",
+      "icon": "fa-mitten"
+    }
+  ],
+  "inboxInfo": {
+    "currentOrderNumber": 1234
+  },
+  "inbox": [
+    {
+      "id": 1122,
+      "customerName": "Jack",
+      "customerSurname": "Black",
+      "orderStatus": "Shipped",
+      "createDate": "2019-06-10T12:39:19Z",
+      "customerAddress": {
+        "city": "London",
+        "street": "65b May Street",
+        "postalCode": "WE2390LU"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_101_SMALL_1",
+          "productName": "Children Socks",
+          "price": 10.05,
+          "variation": "LS"
+        },
+        {
+          "SKU": "SOCK_201_SMALL_1",
+          "productName": "Children Batman Socks",
+          "price": 11,
+          "variation": "LS"
+        }
+      ]
     }
   ],
   "importOrders": [
@@ -146,15 +205,20 @@
       "id": 1234,
       "customerName": "John",
       "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
       "products": [
         {
           "SKU": "SOCK_101_BIG_1",
-          "productName": "Christmans Dog Socks",
+          "productName": "Christmas Dog Socks",
           "price": 15.25
         },
         {
           "SKU": "SOCK_201_BIG_1",
-          "productName": "Christmans Cat Socks",
+          "productName": "Christmas Cat Socks",
           "price": 18.25
         }
       ]
@@ -163,21 +227,151 @@
       "id": 1235,
       "customerName": "John",
       "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_401_BIG_1",
+          "productName": "Halloween Dog Socks",
+          "price": 12.25
+        },
+        {
+          "SKU": "SOCK_501_BIG_1",
+          "productName": "Halloween Cat Socks",
+          "price": 15.65
+        },
+        {
+          "SKU": "SOCK_601_BIG_1",
+          "productName": "Halloween Fish Socks",
+          "price": 10.45
+        }
+      ]
+    },
+    {
+      "id": 2033,
+      "customerName": "Marry",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
       "products": [
         {
           "SKU": "SOCK_101_BIG_1",
-          "productName": "Christmans Dog Socks",
+          "productName": "Christmas Dog Socks",
           "price": 15.25
         },
         {
           "SKU": "SOCK_201_BIG_1",
-          "productName": "Christmans Cat Socks",
+          "productName": "Christmas Cat Socks",
           "price": 18.25
         },
         {
           "SKU": "SOCK_301_BIG_1",
-          "productName": "Christmans Fish Socks",
+          "productName": "Christmas Fish Socks",
           "price": 13.25
+        }
+      ]
+    },
+    {
+      "id": 2433,
+      "customerName": "Harry",
+      "customerSurname": "Porter",
+      "customerAddress": {
+        "city": "Bradford",
+        "street": "Hartington terrace 58",
+        "postalCode": "BD86DA"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_601_BIG_1",
+          "productName": "Star Wars Socks",
+          "price": 17.25
+        },
+        {
+          "SKU": "SOCK_701_BIG_1",
+          "productName": "Yoda Socks",
+          "price": 12.25
+        },
+        {
+          "SKU": "SOCK_801_BIG_1",
+          "productName": "Jar-jar Socks",
+          "price": 6.66
+        },
+        {
+          "SKU": "SOCK_401_BIG_1",
+          "productName": "Halloween Dog Socks",
+          "price": 12.25
+        },
+        {
+          "SKU": "SOCK_501_BIG_1",
+          "productName": "Halloween Cat Socks",
+          "price": 15.65
+        },
+        {
+          "SKU": "SOCK_101_SMALL_1",
+          "productName": "Children Socks",
+          "price": 10.05,
+          "variation": "LS"
+        },
+        {
+          "SKU": "SOCK_201_SMALL_1",
+          "productName": "Children Batman Socks",
+          "price": 11,
+          "variation": "LS"
+        }
+      ]
+    },
+    {
+      "id": 7632,
+      "customerName": "Peter",
+      "customerSurname": "Parker",
+      "customerAddress": {
+        "city": "New York",
+        "street": "543 Main Street",
+        "postalCode": "45634"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_202_BIG_1",
+          "productName": "Spider-man Socks",
+          "price": 15.25
+        }
+      ]
+    },
+    {
+      "id": 3423,
+      "customerName": "Margaret",
+      "customerSurname": "Teacher",
+      "customerAddress": {
+        "city": "Manchester",
+        "street": "London Street 23b",
+        "postalCode": "MA543LD"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_202_BIG_1",
+          "productName": "Spider-man Socks",
+          "price": 15.25
+        },
+        {
+          "SKU": "SOCK_203_BIG_1",
+          "productName": "Hello Kitty Socks",
+          "price": 12.25
+        },
+        {
+          "SKU": "SOCK_204_BIG_1",
+          "productName": "Hulk Socks",
+          "price": 16.25
+        },
+        {
+          "SKU": "SOCK_207_BIG_1",
+          "productName": "Cinderella Socks",
+          "price": 12.5
         }
       ]
     }

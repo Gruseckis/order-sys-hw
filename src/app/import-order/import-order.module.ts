@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FindOrderStepModule } from './import-order-stepper/find-order-step/find-order-step.module';
 import { MatIconModule } from '@angular/material/icon';
 import { PrepareProductStepModule } from './import-order-stepper/prepare-product-step/prepare-product-step.module';
+import { CompleteOrderStepModule } from './import-order-stepper/complete-order-step/complete-order-step.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { PrepareProductStepModule } from './import-order-stepper/prepare-product
     MatButtonModule,
     MatIconModule,
     FindOrderStepModule,
-    PrepareProductStepModule
+    PrepareProductStepModule,
+    MatDialogModule,
+    CompleteOrderStepModule
   ],
   declarations: [
     ImportOrderComponent,

@@ -106,9 +106,12 @@
         </button>
       </div>
     </mat-step>
+    <!-- Third step -->
     <mat-step>
       <ng-template matStepLabel>Confirm Order</ng-template>
-      You are now done.
+      <ng-container *ngIf="(importState$ | async)?.importStatus === 'CO'">
+        <app-complete-order-step></app-complete-order-step>
+      </ng-container>
       <div class="step-control-buttons">
         <button
           mat-raised-button

@@ -1,0 +1,31 @@
+<div class="complete-order-container">
+  <h3 mat-subheader>Order items:</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let item of (importState$ | async).selectedProducts">
+      <mat-icon
+        class="variant-icon"
+        fontSet="fa"
+        fontIcon="{{ getVariationBy(item.variation)?.icon }} fa-2x"
+      ></mat-icon>
+      <h6 mat-line>{{ item.productName }}</h6>
+      <p mat-line>Variation: {{ getVariationBy(item.variation)?.description }}; Price: {{ item.price }}</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <div class="address-price-container">
+    <div class="shipping-info">
+      <h3 mat-subheader>Shipping Information:</h3>
+      <p>Name: {{(importState$ | async).selectedOrder?.customerName + ' ' + (importState$ | async).selectedOrder?.customerName}}</p>
+      <p>Street: {{ (importState$ | async).selectedOrder?.customerAddress.street}}</p>
+      <p>City: {{ (importState$ | async).selectedOrder?.customerAddress.city}}</p>
+      <p>Post Code: {{ (importState$ | async).selectedOrder?.customerAddress.postalCode}}</p>
+    </div>
+    <div price="price-info">
+      <h3 mat-subheader>Product subtotal:</h3>
+      <p>Price: {{ totalPrice| currency }}</p>
+      <p>VAT 21%: {{totalPrice * 0.21 | currency}}</p>
+      <p>Shipping: {{8.79 | currency}}</p>
+      <p>Total: {{totalPrice * 1.21 + 8.79 | currency}}</p>
+    </div>
+  </div>
+</div>
