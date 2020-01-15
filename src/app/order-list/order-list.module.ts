@@ -10,6 +10,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ImportOrderModule } from '../import-order/import-order.module';
 import { MyPipesModule } from '../pipes/pipe-module.module';
+import { OrderItemDetailsComponent } from './order-item-details/order-item-details.component';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -21,9 +25,13 @@ import { MyPipesModule } from '../pipes/pipe-module.module';
     MatDialogModule,
     HttpClientModule,
     ImportOrderModule,
-    MyPipesModule
+    MyPipesModule,
+    MatListModule,
+    MatDividerModule,
+    MatIconModule
   ],
-  declarations: [OrderListComponent, OrderTableComponent],
-  exports: [OrderListComponent]
+  declarations: [OrderListComponent, OrderTableComponent, OrderItemDetailsComponent],
+  exports: [OrderListComponent],
+  entryComponents: [OrderItemDetailsComponent]
 })
 export class OrderListModule {}

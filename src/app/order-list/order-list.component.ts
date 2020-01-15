@@ -39,23 +39,25 @@ export class OrderListComponent implements OnInit {
       .afterClosed()
       .pipe(first())
       .subscribe((result: ImportedOrder)  => {
-        this.httpService.reset();
-        this.importOrderService.reset();
-        const newOrder: Order = {
-          ...result.selectedOrder,
-          orderStatus: 'Processing',
-          products: [
-            ...result.selectedProducts
-          ],
-          createDate: new Date().toISOString()
-        };
-        this.httpService.addOrderToInbox(newOrder)
-        .pipe(first())
-        .subscribe((response: Order) => {
-          this.orders = produce(this.orders, draft => {
-            draft.push(response);
+        if (result) {
+          this.httpService.reset();
+          this.importOrderService.reset();
+          const newOrder: Order = {
+            ...result.selectedOrder,
+            orderStatus: 'Processing',
+            products: [
+              ...result.selectedProducts
+            ],
+            createDate: new Date().toISOString()
+          };
+          this.httpService.addOrderToInbox(newOrder)
+          .pipe(first())
+          .subscribe((response: Order) => {
+            this.orders = produce(this.orders, draft => {
+              draft.push(response);
+            });
           });
-        });
+        }
       });
   }
 }

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>
+  Order# {{data?.id}}
+</h1>
+<mat-dialog-content>
+  <h4>Folders</h4>
+  <mat-list>
+    <mat-list-item *ngFor="let product of data?.products">
+      <mat-icon
+        mat-list-icon
+        class="variant-icon"
+        fontSet="fa"
+        fontIcon="{{ getVariationInfo(product.variation)?.icon }} fa-2x"
+      ></mat-icon>
+      <h4 mat-line>{{product.productName}}</h4>
+      <p mat-line>Variation: {{getVariationInfo(product.variation)?.description}}; Price: {{product.price}} </p>
+    </mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
+  <div class="shipping-info">
+    <h4>Shipping info:</h4>
+    <p>Name: {{data?.customerName}} {{data?.customerSurname}}</p>
+    <p>Street: {{data?.customerAddress.street}}</p>
+    <p>City: {{data?.customerAddress.city}}</p>
+    <p>Postal Code: {{data?.customerAddress.postalCode}}</p>
+  </div>
+  <div class="status">
+    <h4>Status: {{data?.orderStatus}}</h4>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="action-buttons">
+  <button mat-raised-button mat-dialog-close>Close</button>
+  <button mat-raised-button mat-dialog-close color="primary">Ok</button>
+</mat-dialog-actions>

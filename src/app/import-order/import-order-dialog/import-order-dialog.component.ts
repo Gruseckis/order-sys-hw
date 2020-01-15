@@ -9,9 +9,5 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class ImportOrderDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ImportOrderDialogComponent>) {}
 
-  ngOnInit() {}
-
-  onNoClick() {
-    console.log('log');
-  }
+  public ngOnInit() {}
 }

@@ -170,7 +170,7 @@
     }
   ],
   "inboxInfo": {
-    "currentOrderNumber": 1234
+    "currentOrderNumber": 1235
   },
   "inbox": [
     {
@@ -198,6 +198,38 @@
           "variation": "LS"
         }
       ]
+    },
+    {
+      "id": 1235,
+      "customerName": "Marry",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_101_BIG_1",
+          "productName": "Christmas Dog Socks",
+          "price": 15.25,
+          "variation": "CS"
+        },
+        {
+          "SKU": "SOCK_201_BIG_1",
+          "productName": "Christmas Cat Socks",
+          "price": 18.25,
+          "variation": "HWS"
+        },
+        {
+          "SKU": "SOCK_301_BIG_1",
+          "productName": "Christmas Fish Socks",
+          "price": 13.25,
+          "variation": "LS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T09:56:12.561Z"
     }
   ],
   "importOrders": [
