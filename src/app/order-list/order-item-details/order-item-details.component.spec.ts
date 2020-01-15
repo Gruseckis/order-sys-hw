@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-variable */
 import { TestBed } from '@angular/core/testing';
 import { OrderItemDetailsComponent } from './order-item-details.component';
 import { getOrderMock } from '../order.mocks.spec';

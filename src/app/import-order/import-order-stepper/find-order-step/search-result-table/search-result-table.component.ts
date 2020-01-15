@@ -26,13 +26,13 @@ export class SearchResultTableComponent implements OnInit, OnDestroy {
 
   constructor(
     private importOrderService: ImportOrderServiceService,
-    private httpRequstService: HttpRequestService
+    private httpRequestService: HttpRequestService
   ) {}
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   public ngOnInit(): void {
-    this.httpRequstService.importOrderSearch$
+    this.httpRequestService.importOrderSearch$
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(response => {
         this.dataSource = new MatTableDataSource(response);

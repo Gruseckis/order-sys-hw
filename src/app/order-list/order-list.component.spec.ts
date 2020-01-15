@@ -5,9 +5,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ImportOrderServiceService } from '../import-order/import-order-service/import-order-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
-import { getOrderMock, getImportOrderMock } from './order.mocks.spec';
+import { getOrderMock } from './order.mocks.spec';
 import { getMockDialogRef } from '../utils/helper.spec';
 import { ImportOrderDialogComponent } from '../import-order/import-order-dialog/import-order-dialog.component';
+import { getImportStateMock } from '../import-order/import-order.mock.spec';
 
 describe('OrderListComponent', () => {
   let component: OrderListComponent;
@@ -43,7 +44,7 @@ describe('OrderListComponent', () => {
 
   it('should save record when dialog is closed', () => {
     spyOn(dialog, 'open').and.returnValue(getMockDialogRef({
-      afterClosed: jasmine.createSpy().and.returnValue(of(getImportOrderMock()))
+      afterClosed: jasmine.createSpy().and.returnValue(of(getImportStateMock()))
     }));
     spyOn(httpService, 'reset');
     spyOn(importOrderService, 'reset');

@@ -35,7 +35,7 @@ export class ImportOrderStepperComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  public onOrderDeselect(stepper: MatStepper) {
+  public onOrderDeselect(stepper?: MatStepper) {
     this.importOrderService.selectImportedOrder(null);
     if (stepper) {
       stepper.reset();
@@ -43,7 +43,7 @@ export class ImportOrderStepperComponent implements OnInit {
   }
 
   public onKeyPress(event: KeyboardEvent) {
-    if (event.key === 'Enter' && this.searchInput.valid) {
+    if (event.key === 'Enter') {
       this.httpRequestService.importOrderSearch(this.searchInput.value);
     }
   }

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { OrderTableComponent } from './order-table.component';
-import { MatDialog, MatDialogModule, MatPaginatorModule, MatPaginator } from '@angular/material';
+import { MatDialog, MatDialogModule } from '@angular/material';
 import { getOrderMock } from '../order.mocks.spec';
 import { OrderItemDetailsComponent } from '../order-item-details/order-item-details.component';
 import { SimpleChange } from '@angular/core';

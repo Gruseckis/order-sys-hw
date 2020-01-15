@@ -17,7 +17,7 @@
     }
   ],
   "inboxInfo": {
-    "currentOrderNumber": 1240
+    "currentOrderNumber": 1241
   },
   "inbox": [
     {
@@ -190,6 +190,32 @@
       ],
       "orderStatus": "Processing",
       "createDate": "2020-01-15T15:42:45.088Z"
+    },
+    {
+      "id": 1241,
+      "customerName": "John",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_401_BIG_1",
+          "productName": "Halloween Dog Socks",
+          "price": 12.25,
+          "variation": "LS"
+        },
+        {
+          "SKU": "SOCK_501_BIG_1",
+          "productName": "Halloween Cat Socks",
+          "price": 15.65,
+          "variation": "HWS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T20:05:34.703Z"
     }
   ],
   "importOrders": [
