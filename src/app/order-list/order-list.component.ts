@@ -40,8 +40,6 @@ export class OrderListComponent implements OnInit {
       .pipe(first())
       .subscribe((result: ImportedOrder)  => {
         if (result) {
-          this.httpService.reset();
-          this.importOrderService.reset();
           const newOrder: Order = {
             ...result.selectedOrder,
             orderStatus: 'Processing',
@@ -58,6 +56,8 @@ export class OrderListComponent implements OnInit {
             });
           });
         }
+        this.httpService.reset();
+        this.importOrderService.reset();
       });
   }
 }

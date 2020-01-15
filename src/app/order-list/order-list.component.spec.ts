@@ -24,6 +24,8 @@ describe('OrderListComponent', () => {
     importOrderService = TestBed.get(ImportOrderServiceService);
     dialog = TestBed.get(MatDialog);
     component = new OrderListComponent(httpService, importOrderService, dialog);
+    spyOn(httpService, 'reset');
+    spyOn(importOrderService, 'reset');
   });
 
   it('should call service and assign value for table on Init', () => {
@@ -46,8 +48,6 @@ describe('OrderListComponent', () => {
     spyOn(dialog, 'open').and.returnValue(getMockDialogRef({
       afterClosed: jasmine.createSpy().and.returnValue(of(getImportStateMock()))
     }));
-    spyOn(httpService, 'reset');
-    spyOn(importOrderService, 'reset');
     spyOn(httpService, 'addOrderToInbox').and.returnValue(of(getOrderMock()));
     component.onImportOrder();
     expect(httpService.reset).toHaveBeenCalled();

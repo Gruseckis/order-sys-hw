@@ -25,6 +25,7 @@ describe('SearchResultTableComponent', () => {
 
   it('should subscribe and get total price', () => {
     component.ngOnInit();
+    importOrderService.selectImportedOrder(getOrderMock());
     importOrderService.selectImportedProduct(getOrderMock().products[0]);
     expect(component.totalPrice).toEqual(10.05);
   });
