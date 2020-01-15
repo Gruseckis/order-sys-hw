@@ -1,7 +1,6 @@
 <div class="stepper-container">
   <mat-horizontal-stepper
     linear
-    (selectionChange)="steppChange($event)"
     #stepper
   >
     <!-- First Step -->
@@ -47,7 +46,7 @@
         </ng-container>
         <ng-template #navButtons>
           <button mat-raised-button (click)="onOrderDeselect()">
-            Previouse
+            Previous
           </button>
           <button
             mat-raised-button
@@ -90,7 +89,7 @@
           matStepperPrevious
           (click)="onStepChange('OS')"
         >
-          Previouse
+          Previous
         </button>
         <button
           mat-raised-button
@@ -118,7 +117,7 @@
           matStepperPrevious
           (click)="onStepChange('PP')"
         >
-          Previouse
+          Previous
         </button>
         <button mat-raised-button color="primary" (click)="onImportFinalize()">
           Confirm and Ship

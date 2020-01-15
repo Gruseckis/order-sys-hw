@@ -1,157 +1,4 @@
 {
-  "orders": [
-    {
-      "orderGuid": "a09021f2-2df7-4b3d-95c6-5737036da1db",
-      "orderNumber": "60044",
-      "customerName": "Pamelina",
-      "customerSurname": "Farnorth",
-      "creatDate": "2019-06-10T12:39:19Z",
-      "cost": "11.60",
-      "price": "35.20",
-      "fulfillment": "In Progress"
-    },
-    {
-      "orderGuid": "b1cccc7e-6dca-4728-861e-371bd026b1a5",
-      "orderNumber": "85230",
-      "customerName": "Ardisj",
-      "customerSurname": "Dunsmore",
-      "creatDate": "2017-10-25T18:53:37Z",
-      "cost": "16.10",
-      "price": "28.89",
-      "fulfillment": "Quality Control"
-    },
-    {
-      "orderGuid": "2ee88841-28c6-4b31-9460-7fcfcc5a2351",
-      "orderNumber": "38219",
-      "customerName": "Carleton",
-      "customerSurname": "McSaul",
-      "creatDate": "2018-08-08T07:22:26Z",
-      "cost": "12.28",
-      "price": "39.58",
-      "fulfillment": "Shipped"
-    },
-    {
-      "orderGuid": "36e1113d-b9e9-46cc-ab29-4d0974d543ee",
-      "orderNumber": "20924",
-      "customerName": "Hervey",
-      "customerSurname": "Galbreath",
-      "creatDate": "2017-06-06T06:53:41Z",
-      "cost": "17.10",
-      "price": "31.37",
-      "fulfillment": "In Progress"
-    },
-    {
-      "orderGuid": "53b5fb86-b9fa-4bfe-a2db-f70da0a01a31",
-      "orderNumber": "26115",
-      "customerName": "Naoma",
-      "customerSurname": "Cleeves",
-      "creatDate": "2019-03-04T22:03:18Z",
-      "cost": "19.97",
-      "price": "33.62",
-      "fulfillment": "Packing"
-    },
-    {
-      "orderGuid": "60ba7d3a-8c04-40cb-90ff-0cdf4a32dad0",
-      "orderNumber": "61880",
-      "customerName": "Alaster",
-      "customerSurname": "Haythornthwaite",
-      "creatDate": "2019-06-29T05:42:50Z",
-      "cost": "12.40",
-      "price": "39.26",
-      "fulfillment": "Packing"
-    },
-    {
-      "orderGuid": "8ae7a786-144e-473b-818d-187415cc5810",
-      "orderNumber": "44620",
-      "customerName": "Lorraine",
-      "customerSurname": "Mitchelmore",
-      "creatDate": "2019-05-27T22:14:58Z",
-      "cost": "17.03",
-      "price": "23.78",
-      "fulfillment": "Quality Control"
-    },
-    {
-      "orderGuid": "969f4901-26d5-4d56-80f9-7cdb7f599a24",
-      "orderNumber": "97335",
-      "customerName": "Patsy",
-      "customerSurname": "Moncey",
-      "creatDate": "2018-06-06T04:47:04Z",
-      "cost": "16.30",
-      "price": "22.80",
-      "fulfillment": "Shipped"
-    },
-    {
-      "orderGuid": "ee75c3f3-7298-42a8-8bcf-c01cffd2f93a",
-      "orderNumber": "85102",
-      "customerName": "Karlyn",
-      "customerSurname": "Janaszewski",
-      "creatDate": "2019-08-06T05:31:16Z",
-      "cost": "19.59",
-      "price": "44.61",
-      "fulfillment": "Shipped"
-    },
-    {
-      "orderGuid": "2b04e5c0-b19a-406a-b01c-a96ef944ec9f",
-      "orderNumber": "64473",
-      "customerName": "Dickie",
-      "customerSurname": "Adamek",
-      "creatDate": "2019-11-17T02:34:10Z",
-      "cost": "15.48",
-      "price": "27.36",
-      "fulfillment": "In Progress"
-    },
-    {
-      "orderGuid": "ce181105-ff02-4429-9968-6790e71a4f20",
-      "orderNumber": "01653",
-      "customerName": "Idette",
-      "customerSurname": "Bage",
-      "creatDate": "2017-04-21T06:02:56Z",
-      "cost": "12.02",
-      "price": "37.78",
-      "fulfillment": "Shipped"
-    },
-    {
-      "orderGuid": "74aa3dfc-035a-419b-9b77-a91ad500454f",
-      "orderNumber": "61144",
-      "customerName": "Hall",
-      "customerSurname": "Reilingen",
-      "creatDate": "2018-12-24T13:01:52Z",
-      "cost": "6.77",
-      "price": "30.01",
-      "fulfillment": "In Progress"
-    },
-    {
-      "orderGuid": "313f0bdc-736d-4a2f-a129-6823d9818427",
-      "orderNumber": "28121",
-      "customerName": "Rodrique",
-      "customerSurname": "Greser",
-      "creatDate": "2018-03-24T15:36:39Z",
-      "cost": "13.29",
-      "price": "42.30",
-      "fulfillment": "Packing"
-    },
-    {
-      "orderGuid": "b6bb58b4-c190-4282-9071-1972c65667fb",
-      "orderNumber": "33578",
-      "customerName": "Veradis",
-      "customerSurname": "Custed",
-      "creatDate": "2018-10-21T14:08:33Z",
-      "cost": "16.53",
-      "price": "41.16",
-      "fulfillment": "Quality Control"
-    },
-    {
-      "id": "123",
-      "orderGuid": "999",
-      "orderNumber": "123",
-      "customerName": "Pamelina",
-      "customerSurname": "Farnorth",
-      "creatDate": "2019-06-10T12:39:19Z",
-      "cost": "11.60",
-      "price": "35.20",
-      "fulfillment": "In Progress"
-    }
-  ],
   "productVariation": [
     {
       "code": "HWS",
@@ -170,7 +17,7 @@
     }
   ],
   "inboxInfo": {
-    "currentOrderNumber": 1235
+    "currentOrderNumber": 1240
   },
   "inbox": [
     {
@@ -230,6 +77,119 @@
       ],
       "orderStatus": "Processing",
       "createDate": "2020-01-15T09:56:12.561Z"
+    },
+    {
+      "id": 1236,
+      "customerName": "John",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_401_BIG_1",
+          "productName": "Halloween Dog Socks",
+          "price": 12.25,
+          "variation": "CS"
+        },
+        {
+          "SKU": "SOCK_501_BIG_1",
+          "productName": "Halloween Cat Socks",
+          "price": 15.65,
+          "variation": "HWS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T10:06:17.615Z"
+    },
+    {
+      "id": 1237,
+      "customerName": "John",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_101_BIG_1",
+          "productName": "Christmas Dog Socks",
+          "price": 15.25,
+          "variation": "CS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T10:16:58.245Z"
+    },
+    {
+      "id": 1238,
+      "customerName": "John",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_501_BIG_1",
+          "productName": "Halloween Cat Socks",
+          "price": 15.65,
+          "variation": "HWS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T10:24:46.030Z"
+    },
+    {
+      "id": 1239,
+      "customerName": "Marry",
+      "customerSurname": "Doe",
+      "customerAddress": {
+        "city": "New York",
+        "street": "6540 Lons Ave.",
+        "postalCode": "45532"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_101_BIG_1",
+          "productName": "Christmas Dog Socks",
+          "price": 15.25,
+          "variation": "CS"
+        },
+        {
+          "SKU": "SOCK_301_BIG_1",
+          "productName": "Christmas Fish Socks",
+          "price": 13.25,
+          "isSelected": false,
+          "variation": "HWS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T11:57:09.794Z"
+    },
+    {
+      "id": 1240,
+      "customerName": "Peter",
+      "customerSurname": "Parker",
+      "customerAddress": {
+        "city": "New York",
+        "street": "543 Main Street",
+        "postalCode": "45634"
+      },
+      "products": [
+        {
+          "SKU": "SOCK_202_BIG_1",
+          "productName": "Spider-man Socks",
+          "price": 15.25,
+          "variation": "CS"
+        }
+      ],
+      "orderStatus": "Processing",
+      "createDate": "2020-01-15T15:42:45.088Z"
     }
   ],
   "importOrders": [

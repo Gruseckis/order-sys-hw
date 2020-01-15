@@ -6,12 +6,12 @@
   text-decoration: underline;
 }
 
-::ng-deep .mat-horizontal-stepper-header {
-  pointer-events: none !important;
-}
-
 .search-input {
   width: 100%;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
 }
 
 ::ng-deep .search-input .mat-form-field-prefix {

@@ -1,7 +1,6 @@
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImportOrderComponent } from './import-order.component';
 import { ImportOrderDialogComponent } from './import-order-dialog/import-order-dialog.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +28,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     CompleteOrderStepModule
   ],
   declarations: [
-    ImportOrderComponent,
     ImportOrderDialogComponent,
     ImportOrderStepperComponent
   ],

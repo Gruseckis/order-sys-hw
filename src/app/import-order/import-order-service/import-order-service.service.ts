@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import produce from 'immer';
 import {
   ImportedOrder,
@@ -22,10 +22,8 @@ export class ImportOrderServiceService {
   private readonly _importOrder$ = new BehaviorSubject<ImportedOrder>(
     initialState
   );
-  private _selectedOrder: Order;
 
   public readonly importedOrder$ = this._importOrder$.asObservable();
-  public orderFound = new Subject<boolean>();
 
   get importedOrder(): ImportedOrder {
     return this._importOrder$.getValue();
@@ -76,10 +74,6 @@ export class ImportOrderServiceService {
     this.setImportedOrder(newState);
   }
 
-  public selectOrder(order: Order) {
-    this._selectedOrder = order;
-  }
-
   public changeImportStatus(status: ImportStatus) {
     const state = this.importedOrder;
     const newState = produce(state, draft => {
@@ -113,9 +107,5 @@ export class ImportOrderServiceService {
 
   public reset() {
     this.setImportedOrder(initialState);
-  }
-
-  public getSelectedOrder(): Order {
-    return this._selectedOrder;
   }
 }

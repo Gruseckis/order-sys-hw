@@ -13,7 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   imports: [
-    CommonModule, //
+    CommonModule,
     MatTableModule,
     MatPaginatorModule,
     MatCheckboxModule,

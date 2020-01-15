@@ -23,14 +23,6 @@ export class HttpRequestService {
     return this.http.get<Array<Order>>(`${this.baseUrl}inbox`).pipe(first());
   }
 
-  public searchOrder(orderNumber: number): Observable<Array<Order>> {
-    return this.http
-      .get<Array<Order>>(
-        `${this.baseUrl}importOrders?id_like=${orderNumber}`
-      )
-      .pipe(first());
-  }
-
   public reset() {
     this.setImportOrderSearch([]);
   }

@@ -1,28 +1,25 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { TestBed } from '@angular/core/testing';
 import { OrderItemDetailsComponent } from './order-item-details.component';
+import { getOrderMock } from '../order.mocks.spec';
+import { ProductVariationOption } from 'src/app/models/order';
 
 describe('OrderItemDetailsComponent', () => {
   let component: OrderItemDetailsComponent;
-  let fixture: ComponentFixture<OrderItemDetailsComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ OrderItemDetailsComponent ]
-    })
-    .compileComponents();
-  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrderItemDetailsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      declarations: [ OrderItemDetailsComponent ]
+    });
+    component = new OrderItemDetailsComponent(getOrderMock());
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should return correct variation by code', () => {
+    const expectedResult: ProductVariationOption = {
+      code: 'CS',
+      description: 'Crew Socks',
+      icon: 'fa-socks'
+    };
+    expect(component.getVariationInfo('CS')).toEqual(expectedResult);
   });
 });

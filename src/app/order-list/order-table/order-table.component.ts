@@ -41,7 +41,6 @@ export class OrderTableComponent implements OnChanges {
   }
 
   public onItemClick(row: Order) {
-    console.log(row);
     this.dialog.open(OrderItemDetailsComponent, {
       width: '60vw',
       data: row,

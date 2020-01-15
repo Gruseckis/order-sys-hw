@@ -5,12 +5,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import {
   Product,
   ImportStatus,
-  ProductVariationOption,
-  ImportedOrder
+  ProductVariationOption
 } from 'src/app/models/order';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatRadioChange } from '@angular/material/radio';
+import { productVariants } from 'src/app/utils/consts';
 
 @Component({
   selector: 'app-order-details-table',
@@ -24,33 +24,16 @@ export class OrderDetailsTableComponent implements OnInit, OnDestroy {
   public importState$ = this.importOrderService.importedOrder$;
   public importStatus: ImportStatus;
 
-  public productVariants: Array<ProductVariationOption> = [
-    {
-      code: 'HWS',
-      description: 'Heavy wool socks',
-      icon: 'fa-shoe-prints'
-    },
-    {
-      code: 'CS',
-      description: 'Crew Socks',
-      icon: 'fa-socks'
-    },
-    {
-      code: 'LS',
-      description: 'Light Socks',
-      icon: 'fa-mitten'
-    }
-  ];
+  public productVariants: Array<ProductVariationOption>;
 
   private readonly onDestroy$ = new Subject();
-
-  private orderStatus: ImportedOrder;
 
   constructor(private importOrderService: ImportOrderServiceService) {}
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   public ngOnInit() {
+    this.productVariants = productVariants;
     this.importOrderService.importedOrder$
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(response => {
