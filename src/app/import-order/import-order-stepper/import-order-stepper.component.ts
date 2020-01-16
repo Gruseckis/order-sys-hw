@@ -48,8 +48,8 @@ export class ImportOrderStepperComponent implements OnInit {
     }
   }
 
-  public onStepChange(status: ImportStatus) {
-    this.importOrderService.changeImportStatus(status);
+  public onStepChange(status: string) {
+    this.importOrderService.changeImportStatus(status as ImportStatus);
   }
 
   public onImportFinalize() {
