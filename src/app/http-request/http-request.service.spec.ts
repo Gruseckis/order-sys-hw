@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { getOrderMock } from '../order-list/order.mocks.spec';
 import { first } from 'rxjs/operators';
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'http://localhost:3001/';
 
 describe('Service: HttpRequest', () => {
   let service: HttpRequestService;
